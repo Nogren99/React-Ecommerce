@@ -14,7 +14,7 @@ function App() {
       {/* <Titulo></Titulo> */}
       
       <ComponenteContainer/>
-      <ItemListContainter saludito={'saludito :)'}/>
+      <ItemListContainter greeting={'saludito :)'}/>
     </>
   )
 }
