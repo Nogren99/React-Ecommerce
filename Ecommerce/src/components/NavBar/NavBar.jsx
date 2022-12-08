@@ -5,9 +5,10 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-function NavScrollExample() {
+function NavScrollExample({children}) {
   return (
-    <Navbar bg="light" expand="lg">
+    <>
+      <Navbar bg="light" expand="lg">
       <Container fluid>
         <Navbar.Brand href="#">Ecommerce :v</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -50,6 +51,9 @@ function NavScrollExample() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    {children}
+    </>
+    
   );
 }
 
