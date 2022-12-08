@@ -4,7 +4,7 @@ import ItemListContainter from './components/ItemListContainer/ItemListContainte
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import NavBar from './components/NavBar/NavBar'
-import {BrowserRouter,Route,Routes} from 'react-router-dom'
+import {BrowserRouter,Route,Routes,Navigate} from 'react-router-dom'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
 import CartContainer from './components/CartContainer/CartContainer'
 
@@ -19,10 +19,11 @@ function App() {
           
         <Routes>
             <Route path='/' element={<ItemListContainter greeting={'saludito :)'} /> } />
-            <Route path='/detalle' element={<ItemDetailContainer/> } />
+            <Route path='/detail/:productId' element={<ItemDetailContainer/> } />
             <Route path='/cart' element={<CartContainer/> } />
             
-
+            {/*<Route path='*' element={<Navigate to='/'/>}/>*/}
+            
         </Routes>
           
           

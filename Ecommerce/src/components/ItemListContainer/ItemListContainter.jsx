@@ -2,6 +2,7 @@ import { useState,useEffect } from "react";
 import { gFetch } from "../../helpers/gFetch";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Link } from "react-router-dom";
 
 
 const ItemListContainter = ({greeting='Saludito ;)'}) => {
@@ -32,11 +33,12 @@ const ItemListContainter = ({greeting='Saludito ;)'}) => {
                                             <Card style={{ width: '18rem' }}>
                                                 {/*<Card.Img variant="top" src="holder.js/100px180" /> */}  
                                                 <Card.Body>
-                                                <Card.Title>{product.id} - {product.name}</Card.Title>
-                                                <Card.Text>
-                                                    {product.desc}
-                                                </Card.Text>
-                                                <Button variant="primary">Agregar al carrito</Button>
+                                                    <Card.Title>{product.id} - {product.name}</Card.Title>
+                                                    <Card.Text>{product.desc} </Card.Text>
+                                                    <Link to={`/detail/${product.id}`}>
+                                                        <Button variant="primary">Ver Producto</Button>
+                                                    </Link>
+                                                    
                                                 </Card.Body>
                                             </Card>
                                         </div>)
