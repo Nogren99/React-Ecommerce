@@ -11,7 +11,7 @@ function NavScrollExample({children}) {
     <>
       <Navbar bg="light" expand="lg">
       <Container fluid>
-        <Link to="/">Ecommerce :v</Link>
+        <Link to="/">Ecommerce</Link>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav

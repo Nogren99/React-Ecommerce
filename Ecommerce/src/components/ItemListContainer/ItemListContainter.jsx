@@ -26,25 +26,24 @@ const ItemListContainter = ({greeting='Saludito ;)'}) => {
 			{/*[1,2,3,4,5] => 1 [<li>1</li>, <li>2li>],...*/}
 			{/*[1,2,3,4,5].map((numero,index)=><li key={index}>{num}</li>)*/}
 			{
-            loading?
+                loading?
                 <h2>cargando...</h2>
-            :
-                products.map( product => <div>
-                                            <Card style={{ width: '18rem' }}>
-                                                {/*<Card.Img variant="top" src="holder.js/100px180" /> */}  
-                                                <Card.Body>
-                                                    <Card.Title>{product.id} - {product.name}</Card.Title>
-                                                    <Card.Text>{product.desc} </Card.Text>
-                                                    <Link to={`/detail/${product.id}`}>
-                                                        <Button variant="primary">Ver Producto</Button>
-                                                    </Link>
-                                                    
-                                                </Card.Body>
-                                            </Card>
-                                        </div>)
-                                        
+                :
+                products.map( product => 
+                <div>
+                    <Card style={{ width: '18rem' }}>
+                        {/*<Card.Img variant="top" src="holder.js/100px180" /> */}  
+                        <Card.Body>
+                            <Card.Title>{product.id} - {product.name}</Card.Title>
+                            <Card.Text>{product.desc} </Card.Text>
+                            <Link to={`/detail/${product.id}`}>
+                                <Button variant="primary">Ver Producto</Button>
+                            </Link>
+                            
+                        </Card.Body>
+                    </Card>
+                </div>)         
             }
-		
 		</section> 
 	)
 }

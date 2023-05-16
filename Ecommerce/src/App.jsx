@@ -1,21 +1,26 @@
+import {BrowserRouter,Route,Routes,Navigate} from 'react-router-dom'
+
 import Titulo from './components/Titulo/Titulo'
 import ComponenteContainer from './components/pages/ComponenteContainer/ComponenteContainer'
 import ItemListContainter from './components/ItemListContainer/ItemListContainter'
+import NavBar from './components/NavBar/NavBar'
+import ItemDetailContainer from  './components/ItemDetailContainer/ItemDetailContainer'
+import CartContainer from './components/CartContainer/CartContainer'
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
-import NavBar from './components/NavBar/NavBar'
-import {BrowserRouter,Route,Routes,Navigate} from 'react-router-dom'
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
-import CartContainer from './components/CartContainer/CartContainer'
+
 
 function App() {
   
-
+  let app="asd"
  
   return (
-      <BrowserRouter>
+      <BrowserRouter className='main'>
       
-        <NavBar/>
+        <NavBar/> 
+
+        <Titulo titulo={app}/>
           
         <Routes>
             <Route path='/' element={<ItemListContainter greeting={'saludito :)'} /> } />

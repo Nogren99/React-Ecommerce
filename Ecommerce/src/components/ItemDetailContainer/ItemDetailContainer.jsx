@@ -15,19 +15,31 @@ const ItemDetailContainer = () => {
     .catch(err=>console.log(err))
   })
 
+  const [count,SetCount]=useState(0)
+  const handleCount=()=>{
+    SetCount(count+1)
+  }
+
   return (
+
+    
+
     <div>
+      
         <Card style={{ width: '50rem' }}>
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body>
           <Card.Title>{product.id} - {product.name}</Card.Title>
           <Card.Text>
           {product.desc}
-          </Card.Text>
+          </Card.Text> 
           <Card.Text>
           {product.price}
           </Card.Text>
-          <Button variant="primary">Agregar al carrito</Button>
+          <Button variant="primary" onClick={handleCount}>Agregar al carrito</Button>
+          <Card.Text>
+          <p>Cantidad: {count}</p>
+          </Card.Text>
         </Card.Body>
         </Card>
 
