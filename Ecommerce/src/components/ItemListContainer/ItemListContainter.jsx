@@ -1,8 +1,7 @@
 import { useState,useEffect } from "react";
 import { gFetch } from "../../helpers/gFetch";
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import ItemList from "../ItemList/ItemList";
 
 
 const ItemListContainter = ({greeting='Saludito ;)'}) => {
@@ -11,6 +10,22 @@ const ItemListContainter = ({greeting='Saludito ;)'}) => {
     const [products,setProduct]=useState([])
     const [loading,setLoading]=useState(true)
 
+
+    const { id } = useParams()
+
+    useEffect(()=>{
+        if(id){
+            gFetch()
+            .then(data=>setProduct(data.filter(prod=> prod.cat===id)))//filtre
+            .catch(err=>console.log(err))
+            .finally(()=>setLoading(false))
+        }else{
+            gFetch()
+            .then(data=>setProduct(data))//no filtre
+            .catch(err=>console.log(err))
+            .finally(()=>setLoading(false))
+        }
+    },[id])
 
 	useEffect(()=>{
 		gFetch()
@@ -29,20 +44,7 @@ const ItemListContainter = ({greeting='Saludito ;)'}) => {
                 loading?
                 <h2>cargando...</h2>
                 :
-                products.map( product => 
-                <div>
-                    <Card style={{ width: '18rem' }}>
-                        {/*<Card.Img variant="top" src="holder.js/100px180" /> */}  
-                        <Card.Body>
-                            <Card.Title>{product.id} - {product.name}</Card.Title>
-                            <Card.Text>{product.desc} </Card.Text>
-                            <Link to={`/detail/${product.id}`}>
-                                <Button variant="primary">Ver Producto</Button>
-                            </Link>
-                            
-                        </Card.Body>
-                    </Card>
-                </div>)         
+                <ItemList products={products}/>        
             }
 		</section> 
 	)

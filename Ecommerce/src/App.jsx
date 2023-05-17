@@ -13,7 +13,7 @@ import './App.css'
 
 function App() {
   
-  let app="asd"
+  let app="Bienvenido!"
  
   return (
       <BrowserRouter className='main'>
@@ -24,13 +24,11 @@ function App() {
           
         <Routes>
             <Route path='/' element={<ItemListContainter greeting={'saludito :)'} /> } />
+            <Route path='/category/:id' element={ <ItemListContainter/>}></Route>
             <Route path='/detail/:productId' element={<ItemDetailContainer/> } />
             <Route path='/cart' element={<CartContainer/> } />
-            
             {/*<Route path='*' element={<Navigate to='/'/>}/>*/}
-            
         </Routes>
-          
           
       </BrowserRouter>
   )

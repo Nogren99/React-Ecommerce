@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Titulo ({titulo='TITULO',subtitulo='SUBT'}) {
+function Titulo ({titulo='TITULO',subtitulo=':) '}) {
   return (
     <div>
         <h1>{titulo}</h1>
